@@ -1,3 +1,9 @@
+@font-face {
+  font-family: Monocraft;
+  font-weight: normal;
+  src: url('Monocraft.ttf') format('truetype');
+}
+
 body {
     background-color: #e26994;
     font-family:'Monocraft';
