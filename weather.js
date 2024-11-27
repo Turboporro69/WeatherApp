@@ -50,21 +50,29 @@ function displayWeather(data) {
         const description = data.weather[0].description;
         const iconCode = data.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
-
+    
+        const localTime = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false });
+    
         const temperatureHTML = `
             <p>${temperature}°C</p>
         `;
-
+    
         const weatherHtml = `
             <p>${cityName}, ${country}</p>
             <p>${description}</p>
         `;
-
+    
+        const timeHtml = `
+            <p>${localTime}</p>
+        `;
+    
         tempDivInfo.innerHTML = temperatureHTML;
         weatherInfoDiv.innerHTML = weatherHtml;
         weatherIcon.src = iconUrl;
         weatherIcon.alt = description;
-
+    
+        weatherInfoDiv.insertAdjacentHTML('afterbegin', timeHtml);
+    
         showImage();
     }
 }
